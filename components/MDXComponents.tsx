@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import { ComponentMap } from 'mdx-bundler/client'
+import { MDXContentProps } from 'mdx-bundler/client'
 import { coreContent } from '@/lib/utils/contentlayer'
 import Image from './Image'
 import CustomLink from './Link'
@@ -22,11 +22,14 @@ interface Wrapper {
 }
 
 const Wrapper = ({ layout, content, ...rest }: MDXLayout) => {
-  const Layout = require(`../layouts/${layout}`).default
-  return <Layout content={content} {...rest} />
+  const Layout = lazy(() => import(`../layouts/${layout}`))
+  return (
+    <Suspense fallback={<>Loading...</>}>
+      <Layout content={content} {...rest} />
+    </Suspense>
+  )
 }
-
-export const MDXComponents: ComponentMap = {
+const MDXComponents: MDXContentProps['components'] = {
   Image,
   TOCInline,
   a: CustomLink,

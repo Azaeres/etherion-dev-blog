@@ -5,6 +5,8 @@ import { escape } from './htmlEscaper.mjs'
 import siteMetadata from '../data/siteMetadata.js'
 import { allBlogs } from '../.contentlayer/generated/index.mjs'
 
+const slugger = new GithubSlugger()
+
 // TODO: refactor into contentlayer once compute over all docs is enabled
 export async function getAllTags() {
   const tagCount = {}
@@ -12,11 +14,11 @@ export async function getAllTags() {
   allBlogs.forEach((file) => {
     if (file.tags && file.draft !== true) {
       file.tags.forEach((tag) => {
-        const formattedTag = GithubSlugger.slug(tag)
-        if (formattedTag in tagCount) {
-          tagCount[formattedTag] += 1
+        // const formattedTag = slugger.slug(tag)
+        if (tag in tagCount) {
+          tagCount[tag] += 1
         } else {
-          tagCount[formattedTag] = 1
+          tagCount[tag] = 1
         }
       })
     }
@@ -37,7 +39,8 @@ const generateRssItem = (post) => `
   </item>
 `
 
-const generateRss = (posts, page = 'feed.xml') => `
+const generateRss = (posts, page = 'feed.xml') => {
+  return `
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
       <title>${escape(siteMetadata.title)}</title>
@@ -51,11 +54,13 @@ const generateRss = (posts, page = 'feed.xml') => `
       ${posts.map(generateRssItem).join('')}
     </channel>
   </rss>
-`
+  `
+}
 
 async function generate() {
   // RSS for blog post
   if (allBlogs.length > 0) {
+    console.log('generate allBlogs > ');
     const rss = generateRss(allBlogs)
     writeFileSync('./public/feed.xml', rss)
   }
@@ -64,10 +69,22 @@ async function generate() {
   // TODO: use AllTags from contentlayer when computed docs is ready
   if (allBlogs.length > 0) {
     const tags = await getAllTags()
+    console.log(' > tags:', tags);
     for (const tag of Object.keys(tags)) {
       const filteredPosts = allBlogs.filter(
-        (post) => post.draft !== true && post.tags.map((t) => GithubSlugger.slug(t)).includes(tag)
+        (post) => {
+          // const mappedTags = post.tags.map((t) => {
+          //   const slug = slugger.slug(t);
+          //   console.log(' > t: slug:', t, slug);
+          //   return slug
+          // })
+          // console.log(' > mappedTags:', mappedTags);
+          // const findTag = slugger.slug(tag)
+          // console.log(' > findTag:', findTag);
+          return post.draft !== true && post.tags.includes(tag)
+        }
       )
+      // console.log('-  > filteredPosts, tag:', filteredPosts, tag);
       const rss = generateRss(filteredPosts, `tags/${tag}/feed.xml`)
       const rssPath = path.join('public', 'tags', tag)
       mkdirSync(rssPath, { recursive: true })

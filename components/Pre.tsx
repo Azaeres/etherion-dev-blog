@@ -5,7 +5,7 @@ interface Props {
 }
 
 const Pre = ({ children }: Props) => {
-  const textInput = useRef(null)
+  const textInput = useRef<HTMLDivElement>(null)
   const [hovered, setHovered] = useState(false)
   const [copied, setCopied] = useState(false)
 

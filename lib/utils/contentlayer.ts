@@ -31,6 +31,7 @@ export const pick = <Obj, Keys extends keyof Obj>(
   return keys.reduce((acc, key) => {
     acc[key] = obj[key] ?? null
     return acc
+    /* eslint-disable @typescript-eslint/no-explicit-any */
   }, {} as any)
 }
 

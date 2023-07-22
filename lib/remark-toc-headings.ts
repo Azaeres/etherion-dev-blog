@@ -2,10 +2,12 @@ import { VFile } from 'vfile'
 import { Parent } from 'unist'
 import { visit } from 'unist-util-visit'
 import { Heading } from 'mdast'
-import slugger from 'github-slugger'
+import GithubSlugger from 'github-slugger'
 import { toString } from 'mdast-util-to-string'
 import { remark } from 'remark'
 import { Toc } from 'types/Toc'
+
+const slugger = new GithubSlugger()
 
 export function remarkTocHeadings() {
   return (tree: Parent, file: VFile) => {
