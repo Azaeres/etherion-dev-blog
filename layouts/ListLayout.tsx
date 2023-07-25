@@ -1,8 +1,8 @@
-import Link from '@/components/Link'
-import Tag from '@/components/Tag'
+// import Link from '@/components/Link'
+// import Tag from '@/components/Tag'
 import { ComponentProps, useState } from 'react'
 import Pagination from '@/components/Pagination'
-import formatDate from '@/lib/utils/formatDate'
+// import formatDate from '@/lib/utils/formatDate'
 import { CoreContent } from '@/lib/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
 
@@ -23,6 +23,8 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
   // If initialDisplayPosts exist, display it if no searchValue is specified
   const displayPosts =
     initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
+
+  console.log('ListLayout.tsx > displayPosts:', displayPosts)
 
   return (
     <>
@@ -55,7 +57,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
             </svg>
           </div>
         </div>
-        <ul>
+        {/* <ul>
           {!filteredBlogPosts.length && 'No posts found.'}
           {displayPosts.map((post) => {
             const { slug, date, title, summary, tags } = post
@@ -89,7 +91,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
               </li>
             )
           })}
-        </ul>
+        </ul> */}
       </div>
       {pagination && pagination.totalPages > 1 && !searchValue && (
         <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
