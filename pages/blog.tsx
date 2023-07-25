@@ -1,5 +1,5 @@
 import siteMetadata from '@/data/siteMetadata'
-import ListLayout from '@/layouts/ListLayout'
+// import ListLayout from '@/layouts/ListLayout'
 import { PageSEO } from '@/components/SEO'
 import { sortedBlogPost, allCoreContent } from '@/lib/utils/contentlayer'
 import { InferGetStaticPropsType } from 'next'
@@ -29,15 +29,16 @@ export default function Blog({
   initialDisplayPosts,
   pagination,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  console.log(' > posts, initialDisplayPosts, pagination:', posts, initialDisplayPosts, pagination)
   return (
     <>
       <PageSEO title={`Blog - ${siteMetadata.author}`} description={siteMetadata.description} />
-      <ListLayout
+      {/* <ListLayout
         posts={posts}
         initialDisplayPosts={initialDisplayPosts}
         pagination={pagination}
         title="All Posts"
-      />
+      /> */}
     </>
   )
 }
