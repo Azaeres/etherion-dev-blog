@@ -11,6 +11,6 @@ export const getStaticProps = async () => {
 }
 
 export default function About({ author }: InferGetStaticPropsType<typeof getStaticProps>) {
-  console.log('About > author:', author)
+  // console.log('About > author:', author)
   return <MDXLayoutRenderer layout={author.layout || DEFAULT_LAYOUT} content={author} />
 }
