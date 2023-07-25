@@ -1,11 +1,11 @@
 import { writeFileSync, mkdirSync } from 'fs'
 import path from 'path'
-import GithubSlugger from 'github-slugger'
+// import GithubSlugger from 'github-slugger'
 import { escape } from './htmlEscaper.mjs'
 import siteMetadata from '../data/siteMetadata.js'
 import { allBlogs } from '../.contentlayer/generated/index.mjs'
 
-const slugger = new GithubSlugger()
+// const slugger = new GithubSlugger()
 
 // TODO: refactor into contentlayer once compute over all docs is enabled
 export async function getAllTags() {
@@ -69,11 +69,9 @@ async function generate() {
   if (allBlogs.length > 0) {
     const tags = await getAllTags()
     for (const tag of Object.keys(tags)) {
-      const filteredPosts = allBlogs.filter(
-        (post) => {
-          return post.draft !== true && post.tags.includes(tag)
-        }
-      )
+      const filteredPosts = allBlogs.filter((post) => {
+        return post.draft !== true && post.tags.includes(tag)
+      })
       const rss = generateRss(filteredPosts, `tags/${tag}/feed.xml`)
       const rssPath = path.join('public', 'tags', tag)
       mkdirSync(rssPath, { recursive: true })
