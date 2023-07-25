@@ -57,38 +57,50 @@ const securityHeaders = [
 /**
  * @type {import('next/dist/next-server/server/config').NextConfig}
  **/
-module.exports = withContentlayer(
-  withBundleAnalyzer({
-    reactStrictMode: true,
-    pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
-    eslint: {
-      dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
-    },
-    async headers() {
-      return [
-        {
-          source: '/(.*)',
-          headers: securityHeaders,
-        },
-      ]
-    },
-    webpack: (config, { dev, isServer }) => {
-      config.module.rules.push({
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-      })
-
-      if (!dev && !isServer) {
-        // Replace React with Preact only in client production build
-        Object.assign(config.resolve.alias, {
-          'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-          react: 'preact/compat',
-          'react-dom/test-utils': 'preact/test-utils',
-          'react-dom': 'preact/compat',
+module.exports = {
+  ...withContentlayer(
+    withBundleAnalyzer({
+      reactStrictMode: true,
+      pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+      eslint: {
+        dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
+      },
+      async headers() {
+        return [
+          {
+            source: '/(.*)',
+            headers: securityHeaders,
+          },
+        ]
+      },
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      webpack: (config, { dev, isServer }) => {
+        config.module.rules.push({
+          test: /\.svg$/,
+          use: ['@svgr/webpack'],
         })
-      }
 
-      return config
-    },
-  })
-)
+        // Note: At one point Contentlayer started inline the react/jsx-runtime,
+        // which Preact doesn't support. Basically, this can create conflicts with
+        // the runtime internals.
+        // Disabling client-side Preact for now.
+        // if (!dev && !isServer) {
+        //   // Replace React with Preact only in client production build
+        //   Object.assign(config.resolve.alias, {
+        //     'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
+        //     react: 'preact/compat',
+        //     'react-dom/test-utils': 'preact/test-utils',
+        //     'react-dom': 'preact/compat',
+        //   })
+        // }
+
+        return config
+      },
+    })
+  ),
+  // distDir: 'build',
+  // images: {
+  //   unoptimized: true,
+  // },
+  // output: 'export',
+}
