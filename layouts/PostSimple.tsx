@@ -19,6 +19,8 @@ interface Props {
 
 export default function PostLayout({ content, next, prev, children }: Props) {
   const { slug, date, title } = content
+  const formattedDate = formatDate(date)
+  console.log(' > formattedDate:', formattedDate)
 
   return (
     <SectionContainer>
@@ -32,7 +34,7 @@ export default function PostLayout({ content, next, prev, children }: Props) {
                 <div>
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time>{formatDate(date)}</time>
+                    <time dateTime={date}></time>
                   </dd>
                 </div>
               </dl>

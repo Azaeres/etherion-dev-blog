@@ -34,6 +34,8 @@ interface Props {
 
 export default function PostLayout({ content, authorDetails, next, prev, children }: Props) {
   const { slug, date, title, tags } = content
+  const formattedDate = new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)
+  console.log(' > formattedDate:', formattedDate)
 
   return (
     <SectionContainer>
@@ -51,9 +53,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 <div>
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time>
-                      {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
-                    </time>
+                    <time dateTime={date}></time>
                   </dd>
                 </div>
               </dl>
