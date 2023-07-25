@@ -42,7 +42,7 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
                     <dl>
                       <dt className="sr-only">Published on</dt>
                       <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                        <time dateTime={date}>{formatDate(date)}</time>
+                        <time>{formatDate(date)}</time>
                       </dd>
                     </dl>
                     <div className="space-y-5 xl:col-span-3">
