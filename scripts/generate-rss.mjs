@@ -60,7 +60,6 @@ const generateRss = (posts, page = 'feed.xml') => {
 async function generate() {
   // RSS for blog post
   if (allBlogs.length > 0) {
-    console.log('generate allBlogs > ');
     const rss = generateRss(allBlogs)
     writeFileSync('./public/feed.xml', rss)
   }
@@ -69,22 +68,12 @@ async function generate() {
   // TODO: use AllTags from contentlayer when computed docs is ready
   if (allBlogs.length > 0) {
     const tags = await getAllTags()
-    console.log(' > tags:', tags);
     for (const tag of Object.keys(tags)) {
       const filteredPosts = allBlogs.filter(
         (post) => {
-          // const mappedTags = post.tags.map((t) => {
-          //   const slug = slugger.slug(t);
-          //   console.log(' > t: slug:', t, slug);
-          //   return slug
-          // })
-          // console.log(' > mappedTags:', mappedTags);
-          // const findTag = slugger.slug(tag)
-          // console.log(' > findTag:', findTag);
           return post.draft !== true && post.tags.includes(tag)
         }
       )
-      // console.log('-  > filteredPosts, tag:', filteredPosts, tag);
       const rss = generateRss(filteredPosts, `tags/${tag}/feed.xml`)
       const rssPath = path.join('public', 'tags', tag)
       mkdirSync(rssPath, { recursive: true })

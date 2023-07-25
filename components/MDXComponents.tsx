@@ -1,14 +1,14 @@
 /* eslint-disable react/display-name */
 import React, { lazy, Suspense } from 'react'
 import { useMDXComponent } from 'next-contentlayer/hooks'
-import { MDXContentProps } from 'mdx-bundler/client'
-import { coreContent } from '@/lib/utils/contentlayer'
 import Image from './Image'
 import CustomLink from './Link'
 import TOCInline from './TOCInline'
 import Pre from './Pre'
 import { BlogNewsletterForm } from './NewsletterForm'
+import { coreContent } from '@/lib/utils/contentlayer'
 import type { Blog, Authors } from 'contentlayer/generated'
+import { MDXContentProps } from 'mdx-bundler/client'
 
 interface MDXLayout {
   layout: string
@@ -29,18 +29,18 @@ const Wrapper = ({ layout, content, ...rest }: MDXLayout) => {
     </Suspense>
   )
 }
-const MDXComponents: MDXContentProps['components'] = {
+
+export const MDXComponents: MDXContentProps['components'] = {
   Image,
   TOCInline,
   a: CustomLink,
   pre: Pre,
-  wrapper: Wrapper,
   BlogNewsletterForm,
+  wrapper: Wrapper,
 }
 
-export const MDXLayoutRenderer = ({ layout, content, ...rest }: MDXLayout) => {
+export const MDXLayoutRenderer = ({ layout, content, ...rest }) => {
   const MDXLayout = useMDXComponent(content.body.code)
   const mainContent = coreContent(content)
-
   return <MDXLayout layout={layout} content={mainContent} components={MDXComponents} {...rest} />
 }

@@ -6,9 +6,11 @@ const DEFAULT_LAYOUT = 'AuthorLayout'
 
 export const getStaticProps = async () => {
   const author = allAuthors.find((p) => p.slug === 'default')
+  // console.log('getStaticProps  > author:', author)
   return { props: { author } }
 }
 
 export default function About({ author }: InferGetStaticPropsType<typeof getStaticProps>) {
+  console.log('About > author:', author)
   return <MDXLayoutRenderer layout={author.layout || DEFAULT_LAYOUT} content={author} />
 }
