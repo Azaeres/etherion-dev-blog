@@ -2,7 +2,7 @@ import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 import { ComponentProps, useState } from 'react'
 import Pagination from '@/components/Pagination'
-// import formatDate from '@/lib/utils/formatDate'
+import formatDate from '@/lib/utils/formatDate'
 import { CoreContent } from '@/lib/utils/contentlayer'
 import type { Blog } from 'contentlayer/generated'
 
@@ -66,6 +66,8 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
             console.log(' > title:', title)
             console.log(' > summary:', summary)
             console.log(' > tags:', tags)
+            const formattedDate = formatDate(date)
+            console.log(' > formattedDate:', formattedDate)
             return (
               <li key={slug} className="py-4">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">

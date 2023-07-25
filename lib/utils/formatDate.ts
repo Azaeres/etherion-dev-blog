@@ -6,7 +6,12 @@ const formatDate = (date: string) => {
     month: 'long',
     day: 'numeric',
   }
-  const now = new Date(date).toLocaleDateString(siteMetadata.locale, options)
+  console.log('formatDate  > date:', date)
+  console.log(' > siteMetadata.locale:', siteMetadata.locale)
+  console.log(' > options:', options)
+  const dateObj = new Date(date)
+  const now = dateObj.toLocaleDateString(siteMetadata.locale, options)
+  console.log(' > now:', now)
 
   return now
 }
