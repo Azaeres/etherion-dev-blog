@@ -1,6 +1,6 @@
 // import Link from '@/components/Link'
 // import PageTitle from '@/components/PageTitle'
-import SectionContainer from '@/components/SectionContainer'
+// import SectionContainer from '@/components/SectionContainer'
 // import { BlogSEO } from '@/components/SEO'
 // import Image from '@/components/Image'
 // import Tag from '@/components/Tag'
@@ -42,7 +42,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
   console.log(' > slug, authorDetails:', slug, authorDetails)
 
   return (
-    <SectionContainer>
+    <div>
       {/* <BlogSEO
         url={`${siteMetadata.siteUrl}/blog/${slug}`}
         authorDetails={authorDetails}
@@ -167,6 +167,6 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
           </div>
         </div>
       </article> */}
-    </SectionContainer>
+    </div>
   )
 }
