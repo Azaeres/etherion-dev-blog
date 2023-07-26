@@ -1,21 +1,21 @@
-// import Link from '@/components/Link'
-// import PageTitle from '@/components/PageTitle'
-// import SectionContainer from '@/components/SectionContainer'
-// import { BlogSEO } from '@/components/SEO'
-// import Image from '@/components/Image'
-// import Tag from '@/components/Tag'
+import Link from '@/components/Link'
+import PageTitle from '@/components/PageTitle'
+import SectionContainer from '@/components/SectionContainer'
+import { BlogSEO } from '@/components/SEO'
+import Image from '@/components/Image'
+import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-// import Comments from '@/components/comments'
-// import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import Comments from '@/components/comments'
+import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { CoreContent } from '@/lib/utils/contentlayer'
 import { ReactNode } from 'react'
 import type { Blog, Authors } from 'contentlayer/generated'
 
-// const editUrl = (slug) => `${siteMetadata.siteRepo}/blob/master/data/blog/${slug}`
-// const discussUrl = (slug) =>
-//   `https://mobile.twitter.com/search?q=${encodeURIComponent(
-//     `${siteMetadata.siteUrl}/blog/${slug}`
-//   )}`
+const editUrl = (slug) => `${siteMetadata.siteRepo}/blob/master/data/blog/${slug}`
+const discussUrl = (slug) =>
+  `https://mobile.twitter.com/search?q=${encodeURIComponent(
+    `${siteMetadata.siteUrl}/blog/${slug}`
+  )}`
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
@@ -37,13 +37,10 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
   const { slug, date, title, tags } = content
   const formattedDate = new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)
   console.log('PostLayout > formattedDate:', formattedDate)
-  console.log(' > children:', children)
-  console.log(' > title, tags, next, prev:', title, tags, next, prev)
-  console.log(' > slug, authorDetails:', slug, authorDetails)
 
   return (
-    <div>
-      {/* <BlogSEO
+    <SectionContainer>
+      <BlogSEO
         url={`${siteMetadata.siteUrl}/blog/${slug}`}
         authorDetails={authorDetails}
         {...content}
@@ -166,7 +163,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             </footer>
           </div>
         </div>
-      </article> */}
-    </div>
+      </article>
+    </SectionContainer>
   )
 }
