@@ -17,6 +17,7 @@ const siteMetadata = {
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com/in/azaeres/',
   locale: 'en-US',
+  timezone: 'America/Los_Angeles',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
