@@ -1,21 +1,21 @@
-// import Link from '@/components/Link'
-// import PageTitle from '@/components/PageTitle'
+import Link from '@/components/Link'
+import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
-import { BlogSEO } from '@/components/SEO'
-// import Image from '@/components/Image'
-// import Tag from '@/components/Tag'
+// import { BlogSEO } from '@/components/SEO'
+import Image from '@/components/Image'
+import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-// import Comments from '@/components/comments'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import Comments from '@/components/comments'
+// import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { CoreContent } from '@/lib/utils/contentlayer'
 import { ReactNode } from 'react'
 import type { Blog, Authors } from 'contentlayer/generated'
 
-// const editUrl = (slug) => `${siteMetadata.siteRepo}/blob/master/data/blog/${slug}`
-// const discussUrl = (slug) =>
-//   `https://mobile.twitter.com/search?q=${encodeURIComponent(
-//     `${siteMetadata.siteUrl}/blog/${slug}`
-//   )}`
+const editUrl = (slug) => `${siteMetadata.siteRepo}/blob/master/data/blog/${slug}`
+const discussUrl = (slug) =>
+  `https://mobile.twitter.com/search?q=${encodeURIComponent(
+    `${siteMetadata.siteUrl}/blog/${slug}`
+  )}`
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
@@ -42,13 +42,13 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
 
   return (
     <SectionContainer>
-      <BlogSEO
+      {/* <BlogSEO
         url={`${siteMetadata.siteUrl}/blog/${slug}`}
         authorDetails={authorDetails}
         {...content}
       />
-      <ScrollTopAndComment />
-      {/* <article>
+      <ScrollTopAndComment /> */}
+      <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
           <header className="pt-6 xl:pb-6">
             <div className="space-y-1 text-center">
@@ -165,7 +165,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             </footer>
           </div>
         </div>
-      </article> */}
+      </article>
     </SectionContainer>
   )
 }
