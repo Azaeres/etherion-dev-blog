@@ -1,21 +1,21 @@
-import Link from '@/components/Link'
-import PageTitle from '@/components/PageTitle'
+// import Link from '@/components/Link'
+// import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
-import Image from '@/components/Image'
-import Tag from '@/components/Tag'
+// import Image from '@/components/Image'
+// import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import Comments from '@/components/comments'
+// import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { CoreContent } from '@/lib/utils/contentlayer'
 import { ReactNode } from 'react'
 import type { Blog, Authors } from 'contentlayer/generated'
 
-const editUrl = (slug) => `${siteMetadata.siteRepo}/blob/master/data/blog/${slug}`
-const discussUrl = (slug) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(
-    `${siteMetadata.siteUrl}/blog/${slug}`
-  )}`
+// const editUrl = (slug) => `${siteMetadata.siteRepo}/blob/master/data/blog/${slug}`
+// const discussUrl = (slug) =>
+//   `https://mobile.twitter.com/search?q=${encodeURIComponent(
+//     `${siteMetadata.siteUrl}/blog/${slug}`
+//   )}`
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
@@ -38,6 +38,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
   const formattedDate = new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)
   console.log('PostLayout > formattedDate:', formattedDate)
   console.log(' > children:', children)
+  console.log(' > title, tags, next, prev:', title, tags, next, prev)
 
   return (
     <SectionContainer>
@@ -47,7 +48,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
         {...content}
       />
       <ScrollTopAndComment />
-      <article>
+      {/* <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
           <header className="pt-6 xl:pb-6">
             <div className="space-y-1 text-center">
@@ -104,7 +105,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              {/* <div className="prose max-w-none pb-8 pt-10 dark:prose-dark">{children}</div> */}
+              <div className="prose max-w-none pb-8 pt-10 dark:prose-dark">{children}</div>
               <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
                 <Link href={discussUrl(slug)} rel="nofollow">
                   {'Discuss on Twitter'}
@@ -164,7 +165,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             </footer>
           </div>
         </div>
-      </article>
+      </article> */}
     </SectionContainer>
   )
 }
