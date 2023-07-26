@@ -3,7 +3,7 @@ import siteMetadata from '@/data/siteMetadata'
 import Logo from '@/data/logo.svg'
 import Link from './Link'
 import SectionContainer from './SectionContainer'
-// import Footer from './Footer'
+import Footer from './Footer'
 // import MobileNav from './MobileNav'
 // import ThemeSwitch from './ThemeSwitch'
 import { ReactNode } from 'react'
@@ -50,7 +50,7 @@ const LayoutWrapper = ({ children }: Props) => {
           </div> */}
         </header>
         <main className="mb-auto">{children}</main>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </SectionContainer>
   )
