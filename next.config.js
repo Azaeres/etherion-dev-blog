@@ -98,6 +98,7 @@ module.exports = {
       },
     })
   ),
+  transpilePackages: ['react-tweet'],
   // distDir: 'build',
   // images: {
   //   unoptimized: true,

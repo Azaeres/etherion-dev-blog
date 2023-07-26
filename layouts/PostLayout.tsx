@@ -37,6 +37,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
   const { slug, date, title, tags } = content
   const formattedDate = new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)
   console.log('PostLayout > formattedDate:', formattedDate)
+  console.log(' > children:', children)
 
   return (
     <SectionContainer>
@@ -54,7 +55,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 <div>
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    {/* <time dateTime={date}>{formattedDate}</time> */}
+                    <time dateTime={date}>{formattedDate}</time>
                   </dd>
                 </div>
               </dl>
@@ -103,7 +104,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pb-8 pt-10 dark:prose-dark">{children}</div>
+              {/* <div className="prose max-w-none pb-8 pt-10 dark:prose-dark">{children}</div> */}
               <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
                 <Link href={discussUrl(slug)} rel="nofollow">
                   {'Discuss on Twitter'}

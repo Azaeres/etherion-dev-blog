@@ -9,6 +9,7 @@ import { BlogNewsletterForm } from './NewsletterForm'
 import { coreContent } from '@/lib/utils/contentlayer'
 import type { Blog, Authors } from 'contentlayer/generated'
 import { MDXContentProps } from 'mdx-bundler/client'
+import { Tweet } from 'react-tweet'
 
 interface MDXLayout {
   layout: string
@@ -37,6 +38,7 @@ export const MDXComponents: MDXContentProps['components'] = {
   pre: Pre,
   BlogNewsletterForm,
   wrapper: Wrapper,
+  Tweet,
 }
 
 export const MDXLayoutRenderer = ({ layout, content, ...rest }) => {
