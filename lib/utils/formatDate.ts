@@ -5,7 +5,7 @@ const formatDate = (date: string) => {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
-    timeZone: 'Americas/Los_Angeles',
+    timeZone: 'America/Los_Angeles',
   }
   console.log('formatDate  > date:', date)
   console.log(' > siteMetadata.locale:', siteMetadata.locale)
