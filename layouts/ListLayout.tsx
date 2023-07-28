@@ -24,8 +24,6 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
   const displayPosts =
     initialDisplayPosts.length > 0 && !searchValue ? initialDisplayPosts : filteredBlogPosts
 
-  console.log('ListLayout.tsx > displayPosts:', displayPosts)
-
   return (
     <>
       <div className="divide-y">
@@ -61,13 +59,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
           {!filteredBlogPosts.length && 'No posts found.'}
           {displayPosts.map((post) => {
             const { slug, date, title, summary, tags } = post
-            console.log(' > slug:', slug)
-            console.log(' > date:', date)
-            console.log(' > title:', title)
-            console.log(' > summary:', summary)
-            console.log(' > tags:', tags)
             const formattedDate = formatDate(date)
-            console.log(' > formattedDate:', formattedDate)
             return (
               <li key={slug} className="py-4">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">

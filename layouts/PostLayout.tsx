@@ -36,8 +36,6 @@ interface Props {
 export default function PostLayout({ content, authorDetails, next, prev, children }: Props) {
   const { slug, date, title, tags } = content
   const formattedDate = new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)
-  console.log('PostLayout > formattedDate:', formattedDate)
-
   return (
     <SectionContainer>
       <BlogSEO

@@ -7,14 +7,8 @@ const formatDate = (date: string) => {
     day: 'numeric',
     timeZone: siteMetadata.timeZone,
   }
-  console.log('formatDate  > date:', date)
-  console.log(' > siteMetadata.locale:', siteMetadata.locale)
-  console.log(' > options:', options)
   const dateObj = new Date(date)
-  const now = dateObj.toLocaleDateString(siteMetadata.locale, options)
-  console.log(' > now:', now)
-
-  return now
+  return dateObj.toLocaleDateString(siteMetadata.locale, options)
 }
 
 export default formatDate

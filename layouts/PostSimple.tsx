@@ -20,8 +20,6 @@ interface Props {
 export default function PostLayout({ content, next, prev, children }: Props) {
   const { slug, date, title } = content
   const formattedDate = formatDate(date)
-  console.log(' > formattedDate:', formattedDate)
-
   return (
     <SectionContainer>
       <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...content} />

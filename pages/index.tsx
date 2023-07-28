@@ -36,7 +36,6 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
           {posts.slice(0, MAX_DISPLAY).map((post) => {
             const { slug, date, title, summary, tags } = post
             const formattedDate = formatDate(date)
-            console.log(' > formattedDate:', formattedDate)
             return (
               <li key={slug} className="py-12">
                 <article>

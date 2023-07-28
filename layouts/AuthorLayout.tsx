@@ -11,8 +11,6 @@ interface Props {
 
 export default function AuthorLayout({ children, content }: Props) {
   const { name, avatar, occupation, company, email, twitter, linkedin, github } = content
-  console.log('AuthorLayout > avatar', avatar)
-
   return (
     <>
       <PageSEO title={`About - ${name}`} description={`About me - ${name}`} />
