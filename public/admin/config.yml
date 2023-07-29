@@ -8,7 +8,7 @@ logo_url: https://snazzy-piroshki-84b19e.netlify.app/static/images/logo512.png
 collections:
   - label: "Blog"
     name: "blog"
-    folder: "blog"
+    folder: "data/blog"
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
