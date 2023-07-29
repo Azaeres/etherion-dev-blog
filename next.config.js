@@ -9,9 +9,9 @@ const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app umami.mellifera.io identity.netlify.com unpkg.com;
   style-src 'self' 'unsafe-inline' fonts.googleapis.com;
-  img-src * blob: data:;
+  img-src 'self' 'unsafe-inline' blob: data: 'unsafe-eval';
   media-src 'none';
-  connect-src * snazzy-piroshki-84b19e.netlify.app;
+  connect-src * blob: data:;
   font-src 'self' fonts.gstatic.com;
   frame-src giscus.app
 `
