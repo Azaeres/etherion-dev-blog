@@ -1,7 +1,7 @@
 const siteMetadata = {
-  title: 'Etherion Project Blog',
+  title: 'Etherion Blog',
   author: 'Azaeres',
-  headerTitle: 'Etherion Project Blog',
+  headerTitle: 'Etherion Blog',
   description: 'A blog created with Next.js and Tailwind.css',
   language: 'en-us',
   theme: 'system', // system, dark or light
