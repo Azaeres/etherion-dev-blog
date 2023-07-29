@@ -1,22 +1,17 @@
 backend:
   name: git-gateway
   # branch: main # Branch to update (optional; defaults to master)
-media_folder: public/static/images
-public_folder: images
+media_folder: public/static/media
+public_folder: /static/media
+site_url: https://snazzy-piroshki-84b19e.netlify.app
+logo_url: https://snazzy-piroshki-84b19e.netlify.app/static/images/logo512.png
 collections:
-  - name: "pages"
-    label: "Pages"
-    files:
-    - label: "Home"
-      name: "home"
-      file: "content/home.md"
-      fields:
-        - { label: "Title", name: "title", widget: "string"}
-        - { label: "Publish Date", name: "date", widget: "datetime" }
-        - { label: "Body", name: "body", widget: "markdown"}
-        - label: 'Cats'
-          name: "cats"
-          widget: list
-          fields:
-            - { label: "Name", name: "name", widget: "string"}
-            - { label: "Description", name: "description", widget: "text"}
+  - label: "Blog"
+    name: "blog"
+    folder: "blog"
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "thumbnail", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
