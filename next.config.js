@@ -11,7 +11,7 @@ const ContentSecurityPolicy = `
   style-src 'self' 'unsafe-inline' fonts.googleapis.com;
   img-src * blob: data:;
   media-src 'none';
-  connect-src *;
+  connect-src * snazzy-piroshki-84b19e.netlify.app;
   font-src 'self' fonts.gstatic.com;
   frame-src giscus.app
 `
