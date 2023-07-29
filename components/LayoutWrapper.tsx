@@ -23,7 +23,7 @@ const LayoutWrapper = ({ children }: Props) => {
               <div className="flex items-center justify-between">
                 <div className="mr-3">
                   {/* <Logo /> */}
-                  <Image src="/static/images/logo192.png" alt="Logo" width={50} height={50} />
+                  <Image src="/android-chrome-512x512.png" alt="Logo" width={64} height={64} />
                 </div>
                 {typeof siteMetadata.headerTitle === 'string' ? (
                   <div className="hidden h-6 text-2xl font-semibold sm:block">
