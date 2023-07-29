@@ -7,7 +7,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 // You might need to insert additional domains in script-src if you are using external services
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app umami.mellifera.io;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app umami.mellifera.io identity.netlify.com unpkg.com;
   style-src 'self' 'unsafe-inline' fonts.googleapis.com;
   img-src * blob: data:;
   media-src 'none';
