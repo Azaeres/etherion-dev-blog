@@ -10,6 +10,7 @@ collections:
     name: "blog"
     folder: "data/blog"
     extension: mdx
+    format: frontmatter
     create: true
     fields:
       - {label: "Title", name: "title", widget: "string"}
