@@ -4,7 +4,7 @@ import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import formatDate from '@/lib/utils/formatDate'
-import Comments from '@/components/comments'
+// import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { CoreContent } from '@/lib/utils/contentlayer'
 import { ReactNode } from 'react'
@@ -48,7 +48,7 @@ export default function PostLayout({ content, next, prev, children }: Props) {
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-8 pt-10 dark:prose-dark">{children}</div>
             </div>
-            <Comments frontMatter={content} />
+            {/* <Comments frontMatter={content} /> */}
             <footer>
               <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
                 {prev && (

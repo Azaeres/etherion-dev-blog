@@ -5,13 +5,13 @@ import { BlogSEO } from '@/components/SEO'
 import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
-import Comments from '@/components/comments'
+// import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { CoreContent } from '@/lib/utils/contentlayer'
 import { ReactNode } from 'react'
 import type { Blog, Authors } from 'contentlayer/generated'
 
-const editUrl = (slug) => `${siteMetadata.siteRepo}/blob/master/data/blog/${slug}`
+const editUrl = (slug) => `${siteMetadata.siteRepo}/blob/master/data/blog/${slug}.mdx`
 const discussUrl = (slug) =>
   `https://mobile.twitter.com/search?q=${encodeURIComponent(
     `${siteMetadata.siteUrl}/blog/${slug}`
@@ -109,7 +109,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                 {` • `}
                 <Link href={editUrl(slug)}>{'View on GitHub'}</Link>
               </div>
-              <Comments frontMatter={content} />
+              {/* <Comments frontMatter={content} /> */}
             </div>
             <footer>
               <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">

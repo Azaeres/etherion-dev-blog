@@ -1,0 +1,63 @@
+---
+title: Wecome to the Etherion Developer Blog!
+date: 2023-07-31 0:00
+tags:
+  - code
+  - blog
+draft: false
+summary: Welcome! I intend for this blog to be where I chronicle progress on all things Etherion. So with that in mind, let's cover what's been happening to get this blog off the ground!
+thumbnail: /static/images/kairen-seal-portal.jpg
+---
+
+![welcome](/static/images/kairen-seal-portal.jpg)
+
+# Welcome! Blog's up.
+
+I intend for this blog to be where I chronicle progress on all things Etherion. So with that in mind, let's cover what's been happening to get this blog off the ground!
+
+- Started with the [Tailwind Nextjs Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog).
+- Upgraded all dependencies to latest.
+- Resolved a number of breaking changes.
+  - **Fix for issue where contentlayer-generated files weren't being built during deploy.**
+  - **Fix for crashing app in production.**
+    At some point since the starter was last updated, contentlayer started inlining the ReactDOM runtime
+    in order to workaround another issue. However, the starter blog was using the Preact runtime in production
+    and now we had a conflict between the React and Preact internals. I fixed it by just removing Preact.
+  - **Fix for hydration error.**
+    Date formatting timezone needed to be explicitly set for server/client rendering consistency.
+- Now using React Suspense for loading blog posts.
+- Various Eslint & Prettier fixes.
+- Installed a different Prism theme for code blocks.
+  - _My feeling is that it needs more blue..._
+
+```tsx
+# Check it out
+const Wrapper = ({ layout, content, ...rest }: MDXLayout) => {
+  const Layout = lazy(() => import(`../layouts/${layout}`))
+  return (
+    <Suspense fallback={<>Loading...</>}>
+      <Layout content={content} {...rest} />
+    </Suspense>
+  )
+}
+```
+
+- Set up production deploy with [Netlify](https://www.netlify.com/).
+- Added `react-tweet` package for embedded Twitter posts that can be used in blog entries.
+
+<Tweet id="837967187046354948" />
+
+- Inserted my own contact info.
+- Inserted my own branding content and favicon configuration.
+  - Fixes for starter blog favicon and site metadata misconfiguration.
+- Set up analytics. 👀
+- Fixes for Content Security Policy issues.
+- Installed [Decap CMS](https://decapcms.org/) (formerly Netlify CMS) for editing blog posts.
+  - _Noted issue where the admin page isn't mobile optimized. [See related Github issue here.](https://github.com/decaporg/decap-cms/issues/441#issuecomment-1321010883)_
+  - Configured to work with MDX files (Markdown + React).
+- _Noted some contentlayer type warnings on blog posts._
+- Set up dedicated [email address](mailto:azaeres@etherion.app) and [Twitter account](https://twitter.com/EtherionExp) for the Etherion Project.
+
+## Next Up
+
+- Porting the [Etherion app prototype](https://latest.etherion.app/) from Create React App to Next.js.
