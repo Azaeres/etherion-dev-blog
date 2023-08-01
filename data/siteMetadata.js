@@ -24,7 +24,7 @@ const siteMetadata = {
     // supports plausible, simpleAnalytics, umami or googleAnalytics
     plausibleDataDomain: '', // e.g. tailwind-nextjs-starter-blog.vercel.app
     simpleAnalytics: false, // true or false
-    umamiWebsiteId: 'cb9f94ca-0b1e-47a7-8689-9adad9ebd2dd', // e.g. 123e4567-e89b-12d3-a456-426614174000
+    umamiWebsiteId: 'fffe9c7a-1b16-461a-94c2-ebe138a08c61', // e.g. 123e4567-e89b-12d3-a456-426614174000
     googleAnalyticsId: '', // e.g. UA-000000-2 or G-XXXXXXX
   },
   newsletter: {
