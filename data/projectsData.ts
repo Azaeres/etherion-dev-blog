@@ -5,6 +5,12 @@ const projectsData = [
     imgSrc: '/static/images/etherion-prototype-screenshot.png',
     href: 'https://latest.etherion.app/',
   },
+  {
+    title: 'Etherion Laboratory',
+    description: `A experiment playground.`,
+    imgSrc: '/static/images/etherion-lab-screenshot.png',
+    href: 'https://lab.etherion.app/',
+  },
   // {
   //   title: 'The Time Machine',
   //   description: `Imagine being able to travel back in time or to the future. Simple turn the knob
