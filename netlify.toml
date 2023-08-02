@@ -4,8 +4,4 @@ base = "."
 publish = ".next"
 
 [build.environment]
-NEXT_USE_NETLIFY_EDGE = "true"
-NEXT_FORCE_EDGE_IMAGES = "true"
-
-[[plugins]]
-package = "@netlify/plugin-nextjs"
+NETLIFY_NEXT_PLUGIN_SKIP = "true"
