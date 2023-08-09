@@ -1,0 +1,24 @@
+---
+title: Etherion Lab Update v1.0.6
+date: 2023-08-09T03:00:00.505Z
+tags:
+  - blog
+  - features
+  - code
+draft: false
+summary: As of Etherion Lab v1.0.6, dynamically loading scenes that use React Suspense are in. I've ported the DebugIndicator from the protoype, and am currently working on the Parallax library.
+---
+
+# Lab Update!
+
+![v1.0.6 Screenshot](/static/images/etherion-lab-screenshot.png)
+
+When I saw that [`@pixi/react`](https://github.com/pixijs/pixi-react) was a fork of [`react-pixi-fiber`](https://github.com/michalochman/react-pixi-fiber), I switched over. Good time to do it, and definitely glad I did. A bunch of quirky decisions in `react-pixi-fiber`, such as the way custom primitives are defined, have been addressed.
+
+So I've started moving the old prototype into a new home, [Next.js](https://nextjs.org). I can see why Next.js is so popular. The different rendering options are awesome. This blog and the lab both use Static-Site Generation, but the lab uses [Nextjs Static Exports](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports) to generate static files that can be served with any host. Great for a Progressive Web App!
+
+My research into hybridizing Pixi with Next.js PWA is open source. [Check it out!](https://github.com/Azaeres/etherion-lab) As I build the Etherion Experience, I'll be leveraging discoveries made there. Long term research will include in-app purchases, WebGL shaders, content generation workflow, and advancements in development experience (DX). I plan to open source much of it, to help improve the PWA game development ecosystem.
+
+As of Etherion Lab `v1.0.6`, dynamically loading scenes that use React Suspense are in. I've ported the DebugIndicator from the protoype, and am currently working on the Parallax library.
+
+Looking forward to it!

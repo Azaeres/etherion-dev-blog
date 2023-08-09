@@ -8,7 +8,7 @@ const projectsData = [
   {
     title: 'Etherion Laboratory',
     description: `An experiment playground.`,
-    imgSrc: '/static/images/etherion-lab-screenshot.png',
+    imgSrc: '/static/images/etherion-lab-screenshot-v1.0.6.png',
     href: 'https://lab.etherion.app/',
   },
   // {
